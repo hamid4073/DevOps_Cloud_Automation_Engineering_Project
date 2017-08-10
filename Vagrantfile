@@ -48,45 +48,46 @@ Vagrant.configure("2") do |config|
 		#Installation of the required software is done! 		
 
 		#The following three if-statements are used to test whether git, MySQL, and Apache has been installed.
-		#It first check the status of a package, if the status contained “ok installed” returns 1, otherwise returns 0.
-		#For git, since the example shows that it should be installed, we check if the returned value is 1, then print 
+		#It first checks the status of a package, if the status contained “ok installed” returns 1, otherwise returns 0.
+		#For git, since the example shows that it should be installed, I check if the returned value is 1, then print 
 		#a custom message.
 		if [ $(dpkg-query -W -f='${Status}' git 2>/dev/null | grep -c "ok installed") -eq 1 ];
 		then 
 			echo “git… Installed”
 		fi
 		
-		#Here we check whether MySQL has been installed. The custom message is also created. 
+		#Here we check whether MySQL has been installed. The custom message has also been created. 
 		if [ $(dpkg-query -W -f='${Status}' mysql 2>/dev/null | grep -c "ok installed") -eq 0 ];
 		then 
 			echo “mysql… Not Installed!”
 		fi
 
-		#Here we check whether Apache has been installed. The custom message is also created. 
+		#Here we check whether Apache has been installed. The custom message has also been created. 
 		if [ $(dpkg-query -W -f='${Status}' apache2 2>/dev/null | grep -c "ok installed") -eq 1 ];
 		then 
 			echo “apache… Installed”
 		fi
 		
-		#The following line of code is to automatically add the use “pythian” to the system
-		#Creating a new user is an interactive process, which has to be handled.
+		#The following line of code is used to automatically add the user “pythian” to the system.
+		#Creating a new user is an interactive process, which has to be handled automatically.
 		sudo adduser pythian --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 
 		#We skipped setting up a password for the user. It can also be included using the following code:  
-		#echo "myuser:password" | sudo chpasswd
+		#echo "pythian:password" | sudo chpasswd
 
 		#Making the required directory and clone a git repository in that directory
 		mkdir -p opt/code
 		git clone https://github.com/pythian/DevOps_Cloud_Automation_Engineer_Project.git opt/code
 
-		#The ownership and permission is change for the code directory and all of the files within that
-		#to “drwxr-x--- 3 pythian pythian 4096 Aug 10 15:30 code” (This is the output that I got during the testing procedure).
+		#The ownership and permission is changed for the code directory and all of the files within that
+		#to for example “drwxr-x--- 3 pythian pythian 4096 Aug 10 15:30 code” 
+		#(The previous example is the output that I got during the testing procedure).
 		chmod 750 -R opt/code
 		sudo chown -R pythian:pythian opt/code
 	SHELL
 	#This is the end of the project.
 	
-	#This part is an alternative way of doing the project.
+	#This part is an alternative way of using shell to do the project.
 	#We first provision shell and use it to call a separate shell-script file on the same path as vagrantfile.
 	#The “bootstrap” file contains all the required tasks. 
 	#Finally, we end the shell.
