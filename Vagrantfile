@@ -91,7 +91,7 @@ Vagrant.configure("2") do |config|
 	#Finally, we end the shell.
 	
 	#config.vm.provision "shell" do |sl|
-		#sl.path = “bootstrap"
+	#	sl.path = "bootstrap"
 
 	#end	
  		
