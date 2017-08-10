@@ -1,6 +1,6 @@
 # DevOps Cloud Automation Engineer Project
 
-## Project description:
+## Project description
 
 The goal of this project is to use Vagrant to build a VM that is configured automatically.  Your automation should fully patch the VM, install git; mysql; and apache, and then automatically test if each application is installed.  After this check, your automation should clone a git repository of your choice to the Vagrant VM in the /opt/code directory.  The owner and group of the cloned files should be pythian:pythian.
 
