@@ -50,8 +50,7 @@
 		#Creating a new user is an interactive process, which has to be handled.
 		sudo adduser pythian --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 
-		#We skipped setting up a password for the user. It can also be included using the following code:  
-		#echo "myuser:password" | sudo chpasswd
+		
 
 		#Making the required directory and clone a git repository in that directory
 		mkdir -p opt/code
