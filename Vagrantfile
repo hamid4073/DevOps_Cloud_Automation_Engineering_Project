@@ -69,11 +69,9 @@ Vagrant.configure("2") do |config|
 		fi
 		
 		#The following line of code is used to automatically add the user “pythian” to the system.
-		#Creating a new user is an interactive process, which has to be handled automatically.
+		#Creating a new user is an interactive process, which has to be handled automatically. 
+		#We skipped setting up a password for the user. 
 		sudo adduser pythian --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
-
-		#We skipped setting up a password for the user. It can also be included using the following code:  
-		#echo "pythian:password" | sudo chpasswd
 
 		#Making the required directory and clone a git repository in that directory
 		mkdir -p opt/code
