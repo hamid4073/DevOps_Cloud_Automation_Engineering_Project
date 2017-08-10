@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
 
 		#Installation of the required software is done! 		
 
-		#The following three if statements are used to test wether git, MySQL, and Apache has been installed.
+		#The following three if-statements are used to test whether git, MySQL, and Apache has been installed.
 		#It first check the status of a package, if the status contained “ok installed” returns 1, otherwise returns 0.
 		#For git, since the example shows that it should be installed, we check if the returned value is 1, then print 
 		#a custom message.
@@ -56,13 +56,13 @@ Vagrant.configure("2") do |config|
 			echo “git… Installed”
 		fi
 		
-		#Here we check wether MySQL has been installed. The custom message is also created. 
+		#Here we check whether MySQL has been installed. The custom message is also created. 
 		if [ $(dpkg-query -W -f='${Status}' mysql 2>/dev/null | grep -c "ok installed") -eq 0 ];
 		then 
 			echo “mysql… Not Installed!”
 		fi
 
-		#Here we check wether Apache has been installed. The custom message is also created. 
+		#Here we check whether Apache has been installed. The custom message is also created. 
 		if [ $(dpkg-query -W -f='${Status}' apache2 2>/dev/null | grep -c "ok installed") -eq 1 ];
 		then 
 			echo “apache… Installed”
