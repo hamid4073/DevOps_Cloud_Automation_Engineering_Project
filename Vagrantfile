@@ -36,7 +36,8 @@ Vagrant.configure("2") do |config|
 
 		#MySQL installation
 		echo “installing MySQL”
-		#MySQL installation requires setting up password. To automate this, I used the following two lines of code.
+		#MySQL installation requires setting up a password. 
+		#To automate this, I used debconf-utils as shown in the following three lines of code.
 		apt-get install debconf-utils -y > /dev/null
 		debconf-set-selections <<< "mysql-server mysql-server/root_password password Pass12"
 		debconf-set-selections <<< "mysql-server mysql-server/root_password_again password Pass12"
